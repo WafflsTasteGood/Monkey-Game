@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://d4acd7rjweo48"]
+
+[ext_resource type="Script" path="res://node_2d.gd" id="1_rvar7"]
+[ext_resource type="Script" path="res://play.gd" id="2_128ad"]
+[ext_resource type="PackedScene" uid="uid://w6dj0gdy7ly1" path="res://Player/introBG.tscn" id="3_4r55y"]
+
+[node name="mainMenu" type="Node2D"]
+position = Vector2(2, -2)
+script = ExtResource("1_rvar7")
+
+[node name="Play" type="Button" parent="."]
+offset_left = 777.0
+offset_top = 283.0
+offset_right = 1053.0
+offset_bottom = 397.0
+scale = Vector2(1.39428, 1.37021)
+text = "Play"
+script = ExtResource("2_128ad")
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 775.0
+offset_top = 467.0
+offset_right = 1046.0
+offset_bottom = 577.0
+scale = Vector2(1.42313, 1.41243)
+tooltip_text = "Leave the game NOW"
+text = "Quit"
+
+[node name="BG" parent="." instance=ExtResource("3_4r55y")]
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Play" to="Play" method="_on_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
